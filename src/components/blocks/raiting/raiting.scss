@@ -1,0 +1,50 @@
+.rating {
+  p {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    display: block;
+  }
+
+  svg {
+    margin-right: 6px;
+    margin-top: 12px;
+  }
+
+  label {
+    display: none;
+    opacity: 0.35;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 2px;
+    cursor: default;
+  }
+}
+
+.rating .ratingBig {
+  p {
+    font-size: 40px;
+    line-height: 49px;
+  }
+
+  span {
+    font-size: 14px;
+    line-height: 17px;
+    display: inline;
+  }
+
+  svg {
+    margin-right: 12px;
+    margin-top: 6px;
+  }
+  label {
+    display: block;
+  }
+}

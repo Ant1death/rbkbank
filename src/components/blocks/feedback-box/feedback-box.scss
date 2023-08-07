@@ -1,0 +1,268 @@
+.feedback-box {
+  background: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 30px;
+
+  @include media("mtb") {
+    padding: 30px 20px;
+  }
+
+  &--left {
+    @include media("md") {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &--row {
+    @include media("md") {
+      flex-direction: column;
+    }
+  }
+
+  &--col:nth-child(2) {
+    width: 100%;
+    margin-left: 35px;
+    @include media("mtb") {
+      margin-left: 15px;
+    }
+    @include media("md") {
+      margin-left: 0px;
+    }
+  }
+
+  &--review {
+    @include media("md") {
+      display: none;
+    }
+  }
+
+  &--review-mobile {
+    display: none;
+    @include media("md") {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__data {
+    @include media("md") {
+      display: none;
+    }
+  }
+
+  &__data-mobile {
+    display: none;
+    @include media("md") {
+      display: block;
+      margin-top: 10px;
+      text-align: right;
+    }
+  }
+
+  &__avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+
+  .review-box__footer-ui {
+    margin-top: 39px;
+    @include media("mtb") {
+      margin-top: 20px;
+    }
+  }
+
+  &__title {
+    span {
+      opacity: 0.35;
+      margin-left: 20px;
+      @include media("mtb") {
+        margin-left: 10px;
+      }
+
+      @include media("md") {
+        margin-left: 0px;
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+
+    p {
+      font-weight: 600;
+    }
+  }
+
+  p.feedback-box__verified {
+    margin-right: 20px;
+
+    @include media("mtb") {
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    @include media("md") {
+      margin-right: 0px;
+    }
+  }
+
+  &__text {
+    -moz-transition: max-height 0.6s ease;
+    -webkit-transition: max-height 0.6s ease;
+    -o-transition: max-height 0.6s ease;
+    transition: max-height 0.6s ease;
+    overflow: hidden;
+
+    p {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+
+      @include media("md") {
+        font-size: 14px;
+        -webkit-line-clamp: 11;
+      }
+    }
+  }
+  &__text.active {
+    p {
+      display: block;
+    }
+  }
+
+  &__more {
+    text-align: right;
+  }
+
+  &__pros-col {
+    width: calc(50% - 18px);
+    @include media("md") {
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+
+  &__pros {
+    margin-top: 25px;
+    margin-bottom: 20px;
+
+    @include media("md") {
+      flex-direction: column;
+      margin-top: 0;
+    }
+
+    svg {
+      margin-right: 10px;
+    }
+
+    p {
+      margin-left: 30px;
+      margin-top: 10px;
+      font-size: 14px;
+      @include media("mtb") {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .rating {
+    @include media("mtb") {
+      align-items: center;
+    }
+    .rating-text p {
+      @include media("mtb") {
+        font-size: 20px;
+      }
+    }
+
+    svg {
+      @include media("mtb") {
+        margin-top: 0;
+      }
+    }
+
+    .rating-text span {
+      @include media("mtb") {
+        font-size: 12px;
+        display: inline;
+      }
+    }
+  }
+}
+
+.feedback-box__comments {
+  background: #f7f7f7;
+  border-radius: 0px 0px 20px 0px;
+  width: calc(100% + 30px);
+  margin-right: -30px;
+  margin-bottom: -30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  -moz-transition: max-height 0.6s ease;
+  -webkit-transition: max-height 0.6s ease;
+  -o-transition: max-height 0.6s ease;
+  transition: max-height 0.6s ease;
+  overflow: hidden;
+
+  @include media("mtb") {
+    width: calc(100% + 20px);
+    margin-right: -20px;
+  }
+  @include media("md") {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+  }
+
+  &-open {
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    p {
+      font-size: 14px;
+      text-decoration-line: underline;
+      margin-left: 10px;
+    }
+  }
+
+  &.active .feedback-box__comments-open {
+    display: none;
+  }
+
+  &-content {
+    p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-close {
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 30px;
+  }
+
+  &-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: 11px;
+  }
+
+  &-item {
+    margin-top: 20px;
+  }
+
+  &-title {
+    p {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+}

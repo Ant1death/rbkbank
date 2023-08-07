@@ -1,0 +1,135 @@
+.salary-sctn {
+  &__head {
+    margin-bottom: -15px;
+    @include media("md") {
+      margin-bottom: 0;
+      display: block;
+    }
+    &-title,
+    &-link {
+      margin-bottom: 15px;
+    }
+    &-title {
+      margin-right: 20px;
+      @include media("md") {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+    &-link {
+      @include media("md") {
+        margin-bottom: 0;
+      }
+      &:hover {
+        animation-name: logo;
+        animation-duration: 0.4s;
+      }
+    }
+  }
+  &__text {
+    font-weight: normal;
+    line-height: 20px;
+    margin-top: 20px;
+  }
+
+  .salary-sctn__list {
+    a {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      background: var(--default-bg-site);
+      border: 1px solid #dcdcdc;
+      border: 1px solid var(--grey);
+      border-radius: 10px;
+      color: rgba(0, 0, 0, 0.48);
+      font-weight: 400;
+      margin-bottom: 19px;
+      min-height: 86px;
+      padding-left: 30px;
+      position: relative;
+      transition: 0.3s;
+      width: 100%;
+      position: relative;
+      padding-right: 90px;
+
+      @include media("mtb") {
+        padding: 20px 50px 20px 20px;
+        display: block;
+      }
+
+      @include media("mb") {
+        padding: 10px 50px 10px 10px;
+        display: block;
+      }
+
+      span:first-child {
+        color: #000;
+        color: var(--default-text-color);
+        font-family: Montserrat, sans-serif;
+        font-weight: 500;
+        width: 400px;
+        @include media("tb") {
+          width: 300px;
+        }
+
+        @include media("mtb") {
+          margin-right: 8px;
+        }
+
+        @include media("md") {
+          width: auto;
+        }
+      }
+
+      span {
+        @include media("mtb") {
+          font-size: 14px;
+          display: inline;
+        }
+      }
+    }
+
+    a:hover {
+      box-shadow: 0 4px 1px rgb(35 32 30 / 8%);
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+    }
+
+    .salary-sctn__line-button {
+      position: relative;
+      background: #0075ff;
+      background: var(--blue);
+      border-radius: 10px;
+      box-shadow: 0 4px 17px 6px rgb(0 0 0 / 5%);
+      height: calc(100% + 0px);
+      width: 85px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      @include media("mtb") {
+        width: 44px;
+        height: 44px;
+        right: 0;
+        background-size: 7px;
+        border-radius: 9px 0;
+        bottom: 0;
+        top: auto;
+      }
+      img {
+        width: 12px;
+      }
+    }
+  }
+}
+
+.salary-sctn__btn {
+  width: 100%;
+  border-radius: 10px;
+  font-weight: 400;
+  min-height: 86px;
+  text-transform: uppercase;
+}

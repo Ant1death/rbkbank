@@ -1,0 +1,21 @@
+.breadcrumbs {
+  &__element,
+  &__icon {
+    &:not(:last-child) {
+      margin-right: 13px;
+      @include media("lt") {
+        margin-right: 8px;
+      }
+    }
+  }
+  &__element {
+    line-height: 2;
+    @include media("lt") {
+      font-size: 15px;
+    }
+  }
+}
+span.breadcrumbs__element {
+  
+  color: #43c59e;
+}

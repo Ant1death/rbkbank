@@ -1,0 +1,128 @@
+.course-head {
+  &__content {
+    margin-top: 10px;
+    padding-bottom: 50px;
+    @include border(1px, solid, "grey", $grey, "bottom");
+    @include media("md") {
+      display: block;
+    }
+    @include media("mb") {
+      margin-top: 20px;
+      padding-bottom: 35px;
+    }
+  }
+  &__tags {
+    margin-right: 20px;
+    margin-bottom: -11px;
+    @include media("md") {
+      margin-right: 0;
+      margin-top: 20px;
+    }
+  }
+  &__tag {
+    margin-bottom: 11px;
+    margin-right: 23px;
+    @include media("mb") {
+      margin-right: 10px;
+    }
+    &:hover {
+      @include var("background", "blue", $blue);
+      @include var("color", "light-text", $light-text);
+    }
+  }
+  &__price {
+    text-align: right;
+    flex: 0 0 auto;
+    @include media("md") {
+      margin-top: 30px;
+      text-align: left;
+    }
+  }
+  &__month {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  &__all {
+    margin-top: 15px;
+    &-icon {
+      @include const-size(16px, true);
+      margin-right: 14px;
+    }
+    &-text {
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+}
+.course-body {
+  padding-bottom: 55px;
+  @include border(1px, solid, "grey", $grey, "bottom");
+  position: relative;
+  @include media("tb") {
+    padding-bottom: 50px;
+  }
+  @include media("md") {
+    display: block;
+  }
+  @include media("mb") {
+    padding-bottom: 0;
+  }
+  &__info {
+    flex: 0 1 610px;
+    margin-right: 20px;
+    @include media("tb") {
+      flex: 0 1 430px;
+    }
+    @include media("md") {
+      margin-right: 0;
+    }
+    &-text {
+      line-height: 20px;
+      font-weight: 400;
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+      &:first-child {
+        @include media("md") {
+          padding-right: 95px;
+        }
+      }
+      .bold {
+        font-weight: 500;
+      }
+    }
+  }
+  &__ui {
+    flex: 0 0 285px;
+    padding-bottom: 5px;
+    @include media("tb") {
+      flex: 0 0 222px;
+      padding-bottom: 0;
+    }
+    @include media("md") {
+      margin-top: 35px;
+      width: 100%;
+    }
+    &-assessment {
+      @include media("md") {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      &-icon {
+        @include const-size(14px, true);
+        margin-right: 7px;
+      }
+      &-text {
+        line-height: 20px;
+        a {
+          @include var("color", "grey-4", $grey-4);
+        }
+      }
+    }
+    &-button {
+      width: 100%;
+    }
+  }
+}

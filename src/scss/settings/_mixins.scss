@@ -1,0 +1,137 @@
+@use "sass:meta";
+@use "sass:math";
+
+@mixin for-970-px {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin for-670-px {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+
+@mixin for-470-px {
+  @media (max-width: 470px) {
+    @content;
+  }
+}
+
+@mixin for-500-px {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin for-1100-px {
+  @media (max-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin media($size) {
+  @if $size== "lp" {
+    @media (max-width: $media-laptop) {
+      @content;
+    }
+  }
+
+  @if $size== "tb" {
+    @media (max-width: $media-tab) {
+      @content;
+    }
+  }
+
+  @if $size== "mtb" {
+    @media (max-width: $media-min-tab) {
+      @content;
+    }
+  }
+
+  @if $size== "md" {
+    @media (max-width: $media-middle) {
+      @content;
+    }
+  }
+
+  @if $size== "mb" {
+    @media (max-width: $media-mobile) {
+      @content;
+    }
+  }
+
+  @if $size== "lt" {
+    @media (max-width: $media-little) {
+      @content;
+    }
+  }
+}
+
+@mixin border($width, $type: "solid", $color-css, $color-scss, $position: "") {
+  @if ($position != "") {
+    border-#{$position}: $width $type $color-scss;
+    border-#{$position}: $width $type var(--#{$color-css});
+  } @else {
+    border: $width $type $color-scss;
+    border: $width $type var(--#{$color-css});
+  }
+}
+
+@mixin var($property, $name, $value) {
+  #{$property}: #{$value};
+  #{$property}: var(--#{$name});
+}
+
+@mixin theme-colors($colors...) {
+  @each $name, $color in meta.keywords($colors) {
+    --#{$name}: #{$color};
+  }
+}
+
+@mixin trust-vh($minus: 0, $type: "min") {
+  @if $type== "min" {
+    min-height: calc(100vh - #{$minus}px);
+    min-height: calc((var(--vh, 1vh) * 100) - #{$minus}px);
+  }
+
+  @if $type== "def" {
+    height: calc(100vh - #{$minus}px);
+    height: calc((var(--vh, 1vh) * 100) - #{$minus}px);
+  }
+}
+
+@mixin const-size($size, $height: false, $flex: true) {
+  width: $size;
+  min-width: $size;
+
+  @if $flex {
+    flex: 0 0 $size;
+  }
+
+  @if $height {
+    height: $size;
+  }
+}
+
+@mixin anim-swing($axis: "horizontal") {
+  @if $axis== "horizontal" {
+    animation: swing-h 0.6s ease;
+  } @else {
+    animation: swing-w 0.6s ease;
+  }
+
+  animation-iteration-count: 1;
+}
+
+@mixin flex-grid($column, $h, $w) {
+  margin-left: -#{math.div($h, 2)};
+  margin-right: -#{math.div($h, 2)};
+  margin-bottom: -#{$w};
+
+  & > * {
+    flex: 0 0 calc(#{math.div(100%, $column)} - #{$h});
+    margin: 0 #{math.div($h, 2)} #{$w};
+  }
+}

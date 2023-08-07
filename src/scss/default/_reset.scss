@@ -1,0 +1,136 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  background-color: #f6f5f4 !important;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button,
+label {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 68px;
+  text-align: left;
+  margin-top: 35px;
+
+  @include media("tb") {
+    font-size: 32px;
+    line-height: 46px;
+    margin-top: 30px;
+  }
+
+  @include media("mb") {
+    font-size: 28px;
+    line-height: 36px;
+    margin-top: 25px;
+  }
+
+  @include media("lt") {
+    font-size: 22px;
+    line-height: 31px;
+  }
+
+  &.center {
+    text-align: center;
+    @include media("tb") {
+      text-align: left;
+    }
+  }
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 28px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  @include media("tb") {
+    font-size: 24px;
+    margin-top: 30px;
+  }
+
+  @include media("mb") {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+}

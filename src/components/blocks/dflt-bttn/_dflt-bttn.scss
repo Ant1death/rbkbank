@@ -1,0 +1,112 @@
+.dflt-bttn {
+  text-align: center;
+  position: relative;
+  &.s {
+    &-dflt {
+      border-radius: 70px;
+      min-height: 65px;
+      font-weight: 600;
+      @include media("tb") {
+        min-height: 60px;
+        font-size: 14px;
+      }
+    }
+    &-2 {
+      border-radius: 14px;
+      min-height: 62px;
+      font-weight: 500;
+    }
+    &-3 {
+      border-radius: 0px 11px 11px 11px;
+      min-height: 65px;
+      font-weight: 600;
+    }
+    &-4 {
+      min-height: 69px;
+      border-radius: 62px;
+      font-weight: 600;
+      font-size: 25px;
+      text-transform: uppercase;
+      @include media("tb") {
+        min-height: 58px;
+        font-size: 16px;
+      }
+    }
+    &-5 {
+      min-height: 80px;
+      border-radius: 13px;
+      font-weight: 600;
+      font-size: 19px;
+    }
+  }
+  &.t {
+    &-dflt {
+      @include var("background", "blue", $blue);
+      box-shadow: 0 0 0 1em rgba(#fff, 0);
+      @include var("color", "light-text", $light-text);
+    }
+    &-red {
+      @include var("background", "red-2", $red-2);
+      @include var("color", "light-text", $light-text);
+    }
+  }
+  &.pulse {
+    &:hover {
+      animation: pulse 1s infinite;
+    }
+  }
+  &.bg {
+    &:hover {
+      @include var("background", "blue-hover", $blue-hover);
+    }
+  }
+  &__icon {
+    margin-left: 16px;
+  }
+
+  &.dflt-bttn__spinner {
+    background: #a5ceff;
+    &:hover {
+      background: #a5ceff;
+    }
+  }
+
+  .spinner {
+    animation: rotate 2s linear infinite;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    width: 50px;
+    height: 50px;
+    display: none;
+
+    & .path {
+      stroke: rgb(243, 243, 243);
+      stroke-linecap: round;
+      animation: dash 1.5s ease-in-out infinite;
+    }
+  }
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes dash {
+    0% {
+      stroke-dasharray: 1, 150;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 90, 150;
+      stroke-dashoffset: -124;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.select-input {
+  position: relative;
+  z-index: 10;
+  width: max-content;
+  min-width: 250px;
+  @include media("mb") {
+    min-width: auto;
+  }
+  &__button {
+    width: 100%;
+    background: transparent;
+    padding: 10px 0;
+    &-text {
+      margin-right: 14px;
+    }
+    &-icon {
+      transition: 0.3s;
+    }
+  }
+  &__modal {
+    position: absolute;
+    @include var("background", "default-bg-site", $default-bg-site);
+    @include border(1px, solid, "grey", $grey);
+    box-shadow: 0px 0px 21px rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    right: 0;
+    top: calc(100% + 15px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    min-width: 250px;
+    padding: 5px 0;
+    @include media("mb") {
+      width: 100%;
+      min-width: 0;
+    }
+    &-element {
+      text-align: left;
+      background: transparent;
+      display: block;
+      padding: 5px 15px;
+      width: 100%;
+      &:hover {
+        @include var("background", "grey-opacity", $grey-opacity);
+      }
+      &.active {
+        @include var("color", "blue", $blue);
+        pointer-events: none;
+      }
+
+      svg {
+        height: 12px;
+        margin-left: 8px;
+      }
+    }
+
+    &-element.sort-derection-desc {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &.active {
+    .select-input__button-icon {
+      transform: rotate(180deg);
+    }
+    .select-input__modal {
+      opacity: 1;
+      top: calc(100% + 5px);
+      pointer-events: auto;
+    }
+  }
+}
+
+.header-nav-lang {
+  .select-input {
+    min-width: auto;
+  }
+}
+
+.courses-table_sort {
+  .select-input__modal-element.active {
+    pointer-events: auto;
+  }
+}

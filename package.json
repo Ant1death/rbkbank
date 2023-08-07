@@ -1,0 +1,56 @@
+{
+  "name": "coursator",
+  "version": "1.0.0",
+  "description": "coursator online",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp convert_ttf && gulp fonts && gulp style_theme && gulp style && gulp js && gulp js_build && gulp rastr && gulp webp && gulp html"
+  },
+  "repository": "https://github.com/proekt-g",
+  "author": "Armen <prog.dev.rob@gmail.com>",
+  "browserslist": [
+    "> 0.09%"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "autoprefixer": "^10.3.1",
+    "browser-sync": "^2.27.5",
+    "cssnano": "^5.0.7",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-changed": "^4.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.3.0",
+    "gulp-flatten": "^0.4.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-include": "^2.4.1",
+    "gulp-multi-dest": "^1.3.7",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sass-bulk-import": "^1.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-ttf2woff": "^1.1.1",
+    "gulp-ttftowoff2": "^1.0.1",
+    "gulp-uglify-es": "^3.0.0",
+    "gulp-webp": "^4.0.1",
+    "imagemin-jpeg-recompress": "^7.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "postcss": "^8.3.6",
+    "postcss-sort-media-queries": "^3.11.12",
+    "require-dir": "^1.2.0",
+    "sass": "^1.36.0"
+  },
+  "dependencies": {
+    "body-scroll-lock": "^4.0.0-beta.0",
+    "flatpickr": "^4.6.9",
+    "neo-table-lib": "^1.2.7",
+    "nouislider": "^15.5.0",
+    "simplebar": "^5.3.6",
+    "swiper": "^7.0.8"
+  }
+}

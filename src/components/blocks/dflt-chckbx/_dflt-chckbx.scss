@@ -1,0 +1,106 @@
+@use "sass:math";
+
+$dflt-inpt-active: $blue; // active background
+$dflt-inpt-active-inner: #fff; // check color
+$dflt-inpt-focus: 2px rgba(39, 94, 254, 0.3); // box-shadow focus
+$dflt-inpt-border: $grey; // border
+$dflt-inpt-border-hover: $blue; // border hover
+$dflt-inpt-background: #fff; // background
+$dflt-inpt-size: 16px; // size
+
+$dflt-inpt-border-radius: 4px;
+$dflt-inpt-margin-input: 2px;
+$dflt-inpt-margin-label: 15px;
+$dflt-inpt-check-width: 1px;
+
+input[type="checkbox"],
+input[type="radio"] {
+  height: $dflt-inpt-size;
+  width: $dflt-inpt-size;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  outline: none;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--bc, #{$dflt-inpt-border});
+  background: var(--b, #{$dflt-inpt-background});
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+  &:after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    opacity: var(--o, 0);
+  }
+  &:checked {
+    --b: #{$dflt-inpt-active};
+    --bc: #{$dflt-inpt-active};
+    --d-o: 0.3s;
+    --d-t: 0.6s;
+    --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+    --o: 1;
+  }
+  &:hover {
+    &:not(:checked) {
+      --bc: #{$dflt-inpt-border-hover};
+    }
+  }
+  & + label {
+    margin-left: $dflt-inpt-margin-label;
+    font-weight: normal;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    @include media("mb") {
+      margin-left: 10px;
+    }
+  }
+  // &:checked + label {
+  //   @include var("color", "blue", $blue);
+  // }
+  //   &:focus {
+  //     box-shadow: 0 0 0 #{$dflt-inpt-focus};
+  //   }
+}
+input[type="checkbox"] {
+  margin: #{$dflt-inpt-margin-input} 0 0;
+  border-radius: $dflt-inpt-border-radius;
+  &:after {
+    width: math.round(math.div($dflt-inpt-size, 4.2));
+    height: math.round(math.div($dflt-inpt-size, 2.3));
+    border: #{$dflt-inpt-check-width} solid #{$dflt-inpt-active-inner};
+    border-top: 0;
+    border-left: 0;
+    left: math.round(math.div($dflt-inpt-size, 3));
+    top: math.round(math.div($dflt-inpt-size, 5.25));
+    transform: rotate(var(--r, 20deg));
+  }
+  &:checked {
+    --r: 43deg;
+  }
+}
+input[type="radio"] {
+  border-radius: 50%;
+  &:after {
+    width: #{$dflt-inpt-size - 6px};
+    height: #{$dflt-inpt-size - 6px};
+    border-radius: 50%;
+    background: #{$dflt-inpt-active-inner};
+    opacity: 0;
+    transform: scale(var(--s, 0.7));
+    left: 2px;
+    top: 2px;
+  }
+  &:checked {
+    --s: 1;
+    &::after {
+      opacity: 1;
+    }
+  }
+}

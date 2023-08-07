@@ -1,0 +1,56 @@
+.form-basic {
+  &__input {
+    margin-bottom: 20px;
+    width: 100%;
+    background: transparent;
+    @include border(1px, solid, "grey", $grey);
+    border-radius: 9px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.425;
+    height: 62px;
+    resize: none;
+    padding-left: 28px;
+
+    &::placeholder {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 1.425;
+      font-family: $default-font-family;
+      opacity: 0.33;
+    }
+  }
+
+  textarea {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  &__ui-button {
+    margin: 0 auto;
+    margin-top: 10px;
+    text-transform: uppercase;
+    padding-left: 21px;
+    padding-right: 21px;
+  }
+}
+
+.form-basic__filter {
+  background: transparent;
+  border: 1px solid #dcdcdc;
+  border: 1px solid var(--grey);
+  border-radius: 9px;
+  font-size: 16px;
+  font-weight: 400;
+  height: 62px;
+  line-height: 1.425;
+  margin-bottom: 20px;
+  resize: none;
+  width: 100%;
+}
+
+.form-basic__filter.filter-line__select {
+  @include media("md") {
+    border-top: 1px solid var(--grey);
+  }
+}

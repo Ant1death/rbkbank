@@ -1,0 +1,292 @@
+.course-categories__content {
+  max-height: 44px;
+  -moz-transition: max-height 0.6s ease;
+  -webkit-transition: max-height 0.6s ease;
+  -o-transition: max-height 0.6s ease;
+  transition: max-height 0.6s ease;
+  overflow: hidden;
+
+  @include media("mb") {
+    max-height: 90px;
+  }
+
+  .tag {
+    @include media("mb") {
+      width: 100%;
+    }
+  }
+}
+
+.course-anchors {
+  margin-top: 35px;
+
+  @include media("mtb") {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background: #f2f2f2;
+    border-radius: 13px 13px 0 0;
+    width: 100%;
+    top: auto;
+    margin-top: 0;
+  }
+
+  &__element {
+    padding: 12px 20px;
+    margin-left: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #000;
+    box-shadow: 0px 7px 34px rgb(12 46 86 / 15%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    text-align: center;
+
+    @include media("tb") {
+      font-size: 14px;
+      padding: 12px;
+    }
+
+    @include media("mtb") {
+      background: none;
+      font-size: 12px;
+      line-height: 17px;
+      color: #949494;
+      box-shadow: none;
+      flex-direction: column;
+      height: auto;
+      text-transform: none;
+      padding: 10px 0;
+      margin: 0;
+    }
+  }
+
+  svg {
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+    margin-bottom: 5px;
+
+    @include media("tb") {
+      width: 24px;
+      height: 24px;
+    }
+
+    path {
+      stroke: #43c59e;
+      @include media("mtb") {
+        stroke: #949494;
+      }
+    }
+    rect {
+      @include media("mtb") {
+        stroke: #949494;
+      }
+    }
+    circle {
+      @include media("mtb") {
+        stroke: #949494;
+        fill: #949494;
+      }
+    }
+  }
+
+  &__element:hover {
+    color: #fff;
+    background: linear-gradient(90deg, #00c2ff 0%, #0075ff 100%);
+    @include media("mtb") {
+      color: #0075ff;
+      background: none;
+    }
+    svg {
+      path {
+        stroke: #fff;
+
+        @include media("mtb") {
+          stroke: #0075ff;
+        }
+      }
+      rect {
+        stroke: #fff;
+        @include media("mtb") {
+          stroke: #0075ff;
+        }
+      }
+      circle {
+        stroke: #fff;
+        fill: #fff;
+        @include media("mtb") {
+          stroke: #0075ff;
+          fill: #0075ff;
+        }
+      }
+    }
+  }
+}
+
+.wrapper-anchors {
+  position: relative;
+}
+
+.course-anchors__logo {
+  display: none;
+}
+
+.course-anchors__list {
+  width: 100%;
+  min-height: 56px;
+  @include media("mtb") {
+    justify-content: space-between;
+  }
+}
+
+.course-anchors__burger {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  right: 5px;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  display: none;
+  right: calc((100% - 1270px) / 2);
+
+  @include media("lp") {
+    right: 5px;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+.course-anchors__burger-open {
+  display: flex;
+
+  @include media("mtb") {
+    display: none;
+  }
+}
+
+.course-anchors--fixed {
+  background: #fff;
+  z-index: 100;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  display: block;
+  width: 100%;
+  margin-top: 0;
+
+  .course-anchors__burger {
+    display: flex;
+    @include media("mtb") {
+      display: none;
+    }
+  }
+
+  .course-anchors__logo {
+    display: flex;
+    flex: 0 0 181px;
+    height: 52px;
+    margin-right: auto;
+    min-width: 181px;
+    transition: 0.15s ease-out;
+    width: 181px;
+    @include media("mtb") {
+      display: none;
+    }
+
+    img {
+      height: 100%;
+      object-fit: contain;
+      width: 100%;
+    }
+  }
+}
+
+.course-anchors--clear {
+  background: none;
+  z-index: -1;
+
+  .course-anchors__list {
+    display: none;
+  }
+}
+
+.course-spinner {
+  width: 100%;
+  margin-top: 40px;
+  display: none;
+
+  svg {
+    animation: rotate 2s linear infinite;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+    width: 50px;
+    height: 50px;
+  }
+
+  & .path {
+    stroke: #0075ff;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+  }
+}
+
+.course-spinner--show {
+  display: flex;
+}
+
+.course-hidden {
+  display: none;
+}
+
+.course-show {
+  display: flex;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.course-other__content {
+  max-height: 44px;
+  -moz-transition: max-height 0.6s ease;
+  -webkit-transition: max-height 0.6s ease;
+  -o-transition: max-height 0.6s ease;
+  transition: max-height 0.6s ease;
+  overflow: hidden;
+
+  @include media("mb") {
+    max-height: 90px;
+  }
+
+  .tag {
+    @include media("mb") {
+      width: 100%;
+    }
+  }
+}

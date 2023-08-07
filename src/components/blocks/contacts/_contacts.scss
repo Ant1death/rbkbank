@@ -1,0 +1,44 @@
+.contacts {
+  &__container {
+    margin-bottom: -20px;
+    @include media("md") {
+      margin-bottom: 0;
+      display: block;
+    }
+  }
+  &__logo {
+    margin-bottom: 20px;
+    display: inline-block;
+    &:hover {
+      animation-name: logo;
+      animation-duration: 0.4s;
+    }
+  }
+  &__links {
+    margin-bottom: 8px;
+    margin-left: -7.5px;
+    margin-right: -7.5px;
+    @include media("md") {
+      margin-bottom: -12px;
+    }
+    &-element {
+      @include const-size(36px, true);
+      border-radius: 50%;
+      margin: 0 7.5px 12px;
+      &:hover {
+        .contacts__links-element-icon {
+          transform: translateY(-2px);
+        }
+      }
+      @include media("md") {
+        margin: 0 6px 12px;
+        @include const-size(28px, true);
+      }
+      &-icon {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

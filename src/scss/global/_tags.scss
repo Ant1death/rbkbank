@@ -1,0 +1,33 @@
+body {
+  @include var("background-color", "default-bg-site", $default-bg-site);
+
+  &.block {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+body,
+a,
+button,
+label {
+  @include var("color", "default-text-color", $default-text-color);
+
+  font-family: $default-font-family;
+  font-weight: $default-weight-text;
+  font-size: $default-size-text;
+  line-height: $default-line-text;
+}
+p {
+  font-weight: 400;
+}
+a,
+button,
+label,
+svg,
+path {
+  // transition: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: 0.3s;
+}
+img {
+  object-fit: cover;
+}

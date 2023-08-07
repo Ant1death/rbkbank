@@ -1,0 +1,478 @@
+.header {
+  position: relative;
+  z-index: 999;
+  padding: 0;
+  height: 94px;
+
+  &_inner {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    padding: 21px 0;
+
+    @include media("tb") {
+      padding: 19px 0;
+    }
+    @include media("mb") {
+      padding: 10px 0;
+    }
+  }
+  &__logo {
+    height: 52px;
+    margin-right: auto;
+    transition: 150ms ease-out;
+    @include const-size(181px);
+    &:hover {
+      animation-name: logo;
+      animation-duration: 0.4s;
+    }
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__button {
+    position: relative;
+    margin-right: 47px;
+    order: 1;
+    @include media("tb") {
+      margin-right: 35px;
+    }
+    @include media("mtb") {
+      width: 100%;
+      margin-top: 35px;
+    }
+    @include media("mb") {
+      margin-top: 25px;
+    }
+    &-head {
+      // @include border(1px, solid, "blue", $blue);
+      border: 1px solid #4e9aa5;
+      border-radius: 30px;
+      background: transparent;
+      min-height: 52px;
+      padding: 10px 30px;
+      @include media("tb") {
+        min-height: 50px;
+        padding: 5px 25px;
+      }
+      @include media("mtb") {
+        display: none;
+      }
+      &:hover {
+        border-radius: 15px;
+      }
+      &-text {
+        margin-right: 8px;
+      }
+      &-icon {
+        transform: rotate(180deg);
+        transition: 0.3s;
+      }
+    }
+    &-modal {
+      position: absolute;
+      @include var("background", "default-bg-site", $default-bg-site);
+      @include border(1px, solid, "grey", $grey);
+      box-shadow: 0px 0px 21px rgba(0, 0, 0, 0.06);
+      border-radius: 14px;
+      left: 0;
+      top: calc(100% + 34px);
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s;
+      @include media("mtb") {
+        position: relative;
+        top: 0;
+        opacity: 1;
+        pointer-events: auto;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        border-radius: 0px;
+      }
+
+      &-left {
+        padding: 15px 15px 20px 20px;
+        max-width: 300px;
+        transition: 0.3s;
+        @include media("tb") {
+          padding: 15px;
+        }
+        @include media("mtb") {
+          padding: 0;
+          max-width: none;
+          width: 100%;
+          transition: 0.3s;
+          transition: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+          &.active {
+            transform: translateX(calc(-100% - #{$padding-container-tab}));
+          }
+        }
+      }
+      &-button {
+        background: transparent;
+        font-size: 18px;
+        width: 100%;
+        @include var("color", "grey-2", $grey-2);
+        @include media("tb") {
+          font-size: 17px;
+        }
+        @include media("mtb") {
+          font-size: 18px;
+        }
+        &:not(:first-child) {
+          margin-top: 17px;
+          @include media("tb") {
+            margin-top: 15px;
+          }
+          @include media("mtb") {
+            margin-top: 17px;
+          }
+        }
+        &-text {
+          padding-right: 30px;
+          @include media("mtb") {
+            padding-right: 0;
+          }
+        }
+        &-icon {
+          transition: 0.3s;
+          transform: translateX(-8px);
+          opacity: 0;
+          @include media("mtb") {
+            opacity: 1;
+            transform: none;
+            @include const-size(8px);
+            height: auto;
+            path {
+              @include var("fill", "grey-3", $grey-3);
+            }
+          }
+        }
+        &.active {
+          color: #43c59e;
+          .header__button-modal-button-icon {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        &:hover {
+          color: #43c59e !important;
+        }
+      }
+      &-right {
+        width: 0;
+        overflow: hidden;
+        height: 0;
+        max-width: 300px;
+        border: 0px solid transparent;
+        max-height: calc(100vh - 100px);
+        max-height: calc(var(--vh, 1vh) * 100 - 100px);
+        overflow: auto;
+        -ms-overflow-style: none;
+        overflow: -moz-scrollbars-none;
+        scrollbar-width: none;
+        &::-webkit-scrollbar {
+          width: 0;
+        }
+        @include media("tb") {
+          max-width: 250px;
+        }
+        @include media("mtb") {
+          max-height: none;
+          overflow: visible;
+          width: 100%;
+          max-width: none;
+          position: absolute;
+          height: auto;
+          left: 0;
+          transform: translateX(calc(100% + #{$padding-container-tab}));
+          border: none;
+          transition: 0.3s;
+          transition: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+          padding-bottom: 45px;
+        }
+        @include media("mb") {
+          height: 0;
+          overflow: hidden;
+        }
+        &-inner {
+          @include media("mtb") {
+            @include flex-grid(3, 30px, 13px);
+            flex-wrap: wrap;
+            display: flex;
+            margin-top: 35px;
+          }
+          @include media("md") {
+            @include flex-grid(2, 30px, 13px);
+          }
+          @include media("mb") {
+            margin-top: 25px;
+            @include flex-grid(1, 1px, 13px);
+          }
+        }
+        &-back {
+          display: none;
+          background: transparent;
+
+          @include media("mtb") {
+            display: inline-flex;
+          }
+          &-icon {
+            margin-right: 18px;
+          }
+          &-text {
+            font-size: 18px;
+            @include var("color", "blue", $blue);
+          }
+        }
+        &.active {
+          padding: 15px 25px 20px 20px;
+          width: 300px;
+          transition: border 0.3s 0.3s, width 0.3s, height 0.3s, padding 0.3s;
+          @include border(1px, solid, "grey", $grey, "left");
+          @include media("tb") {
+            padding: 15px;
+            width: 250px;
+          }
+          @include media("mtb") {
+            padding: 0;
+            width: 100%;
+            transform: translateX(0);
+            transition: 0.3s;
+            transition: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+            border: none;
+          }
+          @include media("mb") {
+            // height: auto;
+          }
+          .header__button-modal-link {
+            opacity: 1;
+            transition: opacity 0.3s 0.3s, color 0.3s;
+            width: auto;
+            &:hover {
+              color: #43c59e;
+            }
+          }
+        }
+      }
+
+      &-link {
+        font-weight: normal;
+        font-size: 14px;
+        display: block;
+        max-width: max-content;
+        width: 255px;
+        opacity: 0;
+        @include media("tb") {
+          width: 220px;
+        }
+        @include media("mtb") {
+          opacity: 1;
+          font-size: 16px;
+          @include var("color", "grey-2", $grey-2);
+          width: auto;
+          max-width: none;
+        }
+        &:not(:first-child) {
+          margin-top: 11px;
+          @include media("tb") {
+            margin-top: 10px;
+          }
+          @include media("mtb") {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+    &.active {
+      .header__button-head {
+        border-radius: 15px;
+      }
+      .header__button-head-icon {
+        transform: rotate(0deg);
+      }
+      .header__button-modal {
+        top: calc(100% + 17px);
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+  &__links {
+    order: 2;
+    @include media("mtb") {
+      @include border(1px, solid, "grey", $grey, "top");
+      padding-top: 35px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    @include media("mb") {
+      padding-top: 25px;
+      display: block;
+    }
+    &-element {
+      font-weight: normal;
+      @include media("mtb") {
+        font-weight: 500;
+        font-size: 18px;
+      }
+      @include media("mb") {
+        display: block;
+        max-width: max-content;
+      }
+      &:not(:last-child) {
+        margin-right: 43px;
+        @include media("tb") {
+          margin-right: 35px;
+        }
+        @include media("mtb") {
+          margin-right: 60px;
+        }
+        @include media("mb") {
+          margin-bottom: 18px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+.header-nav {
+  @include media("mtb") {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    padding: 0 $padding-container-tab 45px;
+    box-shadow: 0px 21px 21px rgba(0, 0, 0, 0.06);
+    @include border(1px, solid, "grey", $grey, "bottom");
+    @include var("background", "default-bg-site", $default-bg-site);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.3s;
+    transition: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    &.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      visibility: visible;
+    }
+  }
+  @include media("mb") {
+    padding: 0 $padding-container-mobile 45px;
+    @include trust-vh(72, "def");
+    @include media("mb") {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+}
+.burger {
+  $padding: 7.5px;
+
+  overflow: hidden;
+  display: none;
+  @include const-size(40px, true);
+  padding: 12px $padding;
+  background-color: transparent;
+  z-index: 100;
+  @include media("mtb") {
+    display: flex;
+  }
+  &__line {
+    width: 100%;
+    height: 2px;
+    transition: 0.3s;
+    border-radius: 70px;
+    @include var("background", "black", $black);
+  }
+  &.open {
+    .burger__line {
+      &:first-child {
+        transform: translateY(7px) rotate(45deg);
+      }
+      &:nth-child(2) {
+        transform: translateX(calc(100% + #{$padding}));
+      }
+      &:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.header-nav-lang {
+  order: 3;
+  position: relative;
+  margin-left: 43px;
+
+  @include media("mtb") {
+    margin-left: 0px;
+    margin-bottom: 20px;
+  }
+
+  @include media("tb") {
+    margin-left: 20px;
+  }
+
+  .select-input__modal-element.active {
+    display: none;
+  }
+
+  .select-input__modal {
+    background: #ffffff;
+    border-radius: 4px;
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+    min-width: 60px;
+    padding: 6px 5px;
+    width: 60px;
+
+    @include media("mb") {
+      right: auto;
+    }
+  }
+  .select-input__modal-element {
+    font-weight: 700;
+    font-size: 12px;
+    display: flex;
+    padding: 0;
+  }
+
+  span {
+    margin-left: 5px;
+  }
+
+  .select-input__button-icon {
+    display: none;
+  }
+
+  .select-input.active .select-input__modal {
+    top: calc(100% + 5px);
+  }
+
+  .select-input__button {
+    display: flex;
+    align-items: center;
+    background: #eeedeb;
+    border-radius: 4px;
+    padding: 6px 5px;
+    width: 60px;
+  }
+
+  .select-input__button-text {
+    font-weight: 700;
+    font-size: 11px;
+
+    margin-right: 0;
+
+    img {
+      margin-right: 6px;
+    }
+  }
+}

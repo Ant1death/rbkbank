@@ -1,0 +1,172 @@
+.overlay {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: -1;
+  opacity: 0;
+
+  overflow: hidden;
+  transition: 0.6s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-wrap {
+    width: 1170px;
+    background: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+    padding: 40px;
+    overflow: auto;
+    transition: 0.6s;
+
+    @include media("tb") {
+      width: 754px;
+      padding: 40px 30px;
+    }
+
+    @include media("mb") {
+      width: 335px;
+      padding: 20px 20px;
+    }
+  }
+
+  &-wrap__top {
+    @include media("mb") {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
+    h3 {
+      font-weight: 600;
+      font-size: 24px;
+
+      @include media("mb") {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &--close {
+    cursor: pointer;
+
+    @include media("mb") {
+      display: block;
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+
+  &-wrap__top-describe {
+    margin-top: 18px;
+  }
+}
+
+.overlay--show {
+  opacity: 1;
+  z-index: 999;
+
+  .overlay-wrap {
+    margin-right: 0px;
+  }
+}
+
+.overlay--comment {
+  .form-basic {
+    margin-top: 30px;
+
+    @include media("mb") {
+      margin-top: 16px;
+    }
+  }
+}
+.overlay--feedback {
+  .overlay-wrap {
+    height: 100%;
+    max-height: 930px;
+
+    @include media("tb") {
+      max-height: 960px;
+    }
+
+    @include media("md") {
+      max-height: 100%;
+    }
+  }
+  .form-basic {
+    margin-top: 30px;
+
+    @include media("mb") {
+      margin-top: 16px;
+    }
+  }
+  &__assessment-row {
+    @include media("md") {
+      flex-direction: column;
+    }
+  }
+
+  &__assessment-col {
+    width: 25%;
+    margin-top: 10px;
+
+    @include media("tb") {
+      margin-top: 20px;
+    }
+
+    @include media("md") {
+      width: 100%;
+    }
+  }
+
+  &__pros-row {
+    margin-top: 36px;
+
+    @include media("tb") {
+      margin-top: 27px;
+    }
+
+    @include media("mb") {
+      flex-direction: column;
+      margin-top: 0px;
+    }
+  }
+
+  &__pros-col {
+    width: calc(50% - 27px);
+    margin-top: 20px;
+
+    @include media("mb") {
+      width: 100%;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+  }
+
+  .form-basic__ui-button {
+    padding-left: 60px;
+    padding-right: 60px;
+
+    @include media("mb") {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  .assessment-text {
+    @include media("tb") {
+      min-height: 46px;
+      max-width: 150px;
+    }
+
+    @include media("md") {
+      min-height: auto;
+      max-width: max-content;
+    }
+  }
+}

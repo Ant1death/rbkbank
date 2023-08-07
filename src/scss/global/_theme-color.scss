@@ -1,0 +1,32 @@
+:root{
+@include theme-colors($default-text-color: #{$default-text-color});
+@include theme-colors($default-bg-site: #{$default-bg-site});
+@include theme-colors($light-text: #{$light-text});
+@include theme-colors($blue: #{$blue});
+@include theme-colors($blue-hover: #{$blue-hover});
+@include theme-colors($grey: #{$grey});
+@include theme-colors($grey-2: #{$grey-2});
+@include theme-colors($grey-3: #{$grey-3});
+@include theme-colors($grey-4: #{$grey-4});
+@include theme-colors($grey-5: #{$grey-5});
+@include theme-colors($grey-6: #{$grey-6});
+@include theme-colors($grey-7: #{$grey-7});
+@include theme-colors($grey-8: #{$grey-8});
+@include theme-colors($grey-9: #{$grey-9});
+@include theme-colors($grey-10: #{$grey-10});
+@include theme-colors($grey-opacity: #{$grey-opacity});
+@include theme-colors($grey-opacity-2: #{$grey-opacity-2});
+@include theme-colors($black: #{$black});
+@include theme-colors($green: #{$green});
+@include theme-colors($green-opacity: #{$green-opacity});
+@include theme-colors($green-opacity-2: #{$green-opacity-2});
+@include theme-colors($pink: #{$pink});
+@include theme-colors($red: #{$red});
+@include theme-colors($red-2: #{$red-2});
+@include theme-colors($red-opacity: #{$red-opacity});
+@include theme-colors($red-opacity-2: #{$red-opacity-2});
+@include theme-colors($violet: #{$violet});
+@include theme-colors($gold: #{$gold});
+@include theme-colors($yellow: #{$yellow});
+@include theme-colors($white-opacity: #{$white-opacity});
+}

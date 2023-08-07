@@ -1,0 +1,36 @@
+.assessment {
+  flex: 0 0 auto;
+  &-text {
+    font-weight: normal;
+  }
+  &-stars {
+    margin-top: 10px;
+    direction: rtl;
+    @include media("mb") {
+      justify-content: flex-end;
+    }
+  }
+  &-star {
+    @include const-size(21px, true);
+    background: transparent;
+    &:not(:first-child) {
+      margin-right: 7px;
+    }
+    &-icon {
+      width: 100%;
+      height: 100%;
+    }
+    &:hover ~ .assessment-star,
+    &:hover,
+    &.active ~ .assessment-star,
+    &.active {
+      path {
+        @include var("fill", "gold", $gold);
+        @include var("stroke", "gold", $gold);
+      }
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

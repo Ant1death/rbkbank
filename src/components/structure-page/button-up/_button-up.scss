@@ -1,0 +1,47 @@
+.button-up {
+  // background: transparent;
+  @include var("background", "white-opacity", $white-opacity);
+  padding: 10px;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  border-radius: 10px;
+  @include media("tb") {
+    bottom: 75px;
+  }
+  @include media("md") {
+    bottom: 20px;
+  }
+  @include media("mb") {
+    bottom: 5px;
+    left: 20px;
+    right: auto;
+  }
+  &:hover {
+    .button-up__icon {
+      transform: translateY(-4px);
+    }
+  }
+  &__text {
+    margin-right: 9px;
+  }
+  &__icon {
+    transition: 0.3s;
+  }
+  &.active {
+    opacity: 1;
+    transform: translateY(0px);
+    pointer-events: auto;
+  }
+  &.active-fixed {
+    bottom: 180px;
+
+    @media (max-width: 768px) {
+      bottom: 80px;
+    }
+  }
+}
