@@ -1439,3 +1439,11 @@
     pointer-events: none;
   }
 }
+@media(max-width:767px) {
+  .reviews-prev {
+    display: none;
+  }
+  .reviews-next {
+    display: none;
+  }
+}

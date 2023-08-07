@@ -59,7 +59,7 @@ window.addEventListener("load", function () {
           spaceBetween: 20,
         },
         0: {
-          slidesPerView: 1,
+          slidesPerView: 1.2,
           allowTouchMove: true,
           draggable: true,
           simulateTouch: true,
