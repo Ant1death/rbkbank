@@ -115,7 +115,7 @@
   }
 
   &__articles {
-    background: #0693e3;
+    background: #4e9aa5;
     border-radius: 12px;
     -moz-transition: max-height 0.6s ease;
     -webkit-transition: max-height 0.6s ease;
@@ -140,6 +140,9 @@
       li {
         color: #fff;
         margin-bottom: 12px;
+        &:hover {
+          color: #fff !important;
+        }
       }
 
       li:last-child {
@@ -149,6 +152,9 @@
       a {
         color: #fff;
         font-weight: 500;
+        &:hover {
+          color: #fff !important;
+        }
       }
     }
   }

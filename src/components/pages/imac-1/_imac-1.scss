@@ -1447,3 +1447,14 @@
     display: none;
   }
 }
+@media(max-width: 374px) {
+  .areas-card {
+    flex-direction: column;
+    height: auto;
+    padding: 0px 15px 15px 15px;
+  }
+  .areas-card__picture {
+    max-width: 100%;
+    width: 100%;
+  }
+}
